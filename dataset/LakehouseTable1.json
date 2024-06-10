@@ -1,0 +1,20 @@
+{
+	"name": "LakehouseTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FabricLakehouse_Connection",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"FabricWorkspaceId": "8ab56f1d-865c-42dd-b145-f408d393e6c3",
+				"FabricLakehouseId": "afd4863c-5de9-4d7f-bec2-e5cddcde3bb8"
+			}
+		},
+		"annotations": [],
+		"type": "LakehouseTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

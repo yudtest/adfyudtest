@@ -1,0 +1,10 @@
+{
+	"name": "AzureDataLakeStorage279",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dac98d14-f4bc-4084-8029-0efc92f92a40/resourceGroups/yudtestenv/providers/Microsoft.Storage/storageAccounts/yudtestadls",
+		"groupId": "dfs",
+		"fqdns": [
+			"yudtestadls.dfs.core.windows.net"
+		]
+	}
+}

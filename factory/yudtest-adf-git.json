@@ -1,0 +1,17 @@
+{
+	"name": "yudtest-adf-git",
+	"properties": {
+		"globalParameters": {
+			"test": {
+				"type": "int",
+				"value": 123
+			}
+		}
+	},
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "21f42cb3-1603-45f3-a6f4-2a18634a04b3",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

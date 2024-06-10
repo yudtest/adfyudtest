@@ -1,0 +1,71 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				},
+				{
+					"name": "flatten2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {@odata.context} as string,",
+				"          {@odata.count} as short,",
+				"          {@odata.nextLink} as string,",
+				"          value as (activationLockBypassCode as string, androidSecurityPatchLevel as string, azureADDeviceId as string, azureADRegistered as boolean, complianceGracePeriodExpirationDateTime as timestamp, complianceState as string, configurationManagerClientEnabledFeatures as string, deviceActionResults as string[], deviceCategoryDisplayName as string, deviceEnrollmentType as string, deviceHealthAttestationState as string, deviceName as string, deviceRegistrationState as string, easActivated as boolean, easActivationDateTime as timestamp, easDeviceId as string, emailAddress as string, enrolledDateTime as timestamp, ethernetMacAddress as string, exchangeAccessState as string, exchangeAccessStateReason as string, exchangeLastSuccessfulSyncDateTime as timestamp, freeStorageSpaceInBytes as long, iccid as string, id as string, imei as long, isEncrypted as boolean, isSupervised as boolean, jailBroken as string, lastSyncDateTime as timestamp, managedDeviceName as string, managedDeviceOwnerType as string, managementAgent as string, managementCertificateExpirationDate as timestamp, manufacturer as string, meid as long, model as string, notes as string, operatingSystem as string, osVersion as string, partnerReportedThreatState as string, phoneNumber as string, physicalMemoryInBytes as boolean, remoteAssistanceSessionErrorDetails as string, remoteAssistanceSessionUrl as string, requireUserEnrollmentApproval as boolean, serialNumber as string, subscriberCarrier as string, totalStorageSpaceInBytes as long, udid as string, userDisplayName as string, userId as string, userPrincipalName as string, wiFiMacAddress as string)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 foldDown(unroll(value, value),",
+				"     mapColumn(",
+				"          {@odata.context},",
+				"          {@odata.count},",
+				"          {@odata.nextLink},",
+				"          value = value.id",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 foldDown(unroll(),",
+				"     mapColumn(",
+				"          {@odata.context},",
+				"          {@odata.count},",
+				"          {@odata.nextLink},",
+				"          value",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten2",
+				"flatten2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

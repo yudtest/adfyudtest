@@ -1,0 +1,33 @@
+{
+	"name": "FabricLakehouse_Connection",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"FabricWorkspaceId": {
+				"type": "string",
+				"defaultValue": "8ab56f1d-865c-42dd-b145-f408d393e6c3"
+			},
+			"FabricLakehouseId": {
+				"type": "string",
+				"defaultValue": "afd4863c-5de9-4d7f-bec2-e5cddcde3bb8"
+			}
+		},
+		"annotations": [],
+		"type": "Lakehouse",
+		"typeProperties": {
+			"workspaceId": "8ab56f1d-865c-42dd-b145-f408d393e6c3",
+			"artifactId": "afd4863c-5de9-4d7f-bec2-e5cddcde3bb8",
+			"tenant": "dc0b52a3-68c5-44f7-881d-9383d8850b96",
+			"servicePrincipalId": "4083397a-f9a0-4e3d-9657-a808b84ee9a8",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"servicePrincipalCredential": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "QUT-EDIE-FabricDW-Writer"
+			}
+		}
+	}
+}

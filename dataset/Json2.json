@@ -1,0 +1,203 @@
+{
+	"name": "Json2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "intunedevices (1).json",
+				"fileSystem": "jsondata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"@odata.context": {
+					"type": "string"
+				},
+				"@odata.count": {
+					"type": "integer"
+				},
+				"@odata.nextLink": {
+					"type": "string"
+				},
+				"value": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "string"
+							},
+							"userId": {
+								"type": "string"
+							},
+							"deviceName": {
+								"type": "string"
+							},
+							"managedDeviceOwnerType": {
+								"type": "string"
+							},
+							"enrolledDateTime": {
+								"type": "string"
+							},
+							"lastSyncDateTime": {
+								"type": "string"
+							},
+							"operatingSystem": {
+								"type": "string"
+							},
+							"complianceState": {
+								"type": "string"
+							},
+							"jailBroken": {
+								"type": "string"
+							},
+							"managementAgent": {
+								"type": "string"
+							},
+							"osVersion": {
+								"type": "string"
+							},
+							"easActivated": {
+								"type": "boolean"
+							},
+							"easDeviceId": {
+								"type": "string"
+							},
+							"easActivationDateTime": {
+								"type": "string"
+							},
+							"azureADRegistered": {
+								"type": "boolean"
+							},
+							"deviceEnrollmentType": {
+								"type": "string"
+							},
+							"activationLockBypassCode": {
+								"type": "null"
+							},
+							"emailAddress": {
+								"type": "string"
+							},
+							"azureADDeviceId": {
+								"type": "string"
+							},
+							"deviceRegistrationState": {
+								"type": "string"
+							},
+							"deviceCategoryDisplayName": {
+								"type": "string"
+							},
+							"isSupervised": {
+								"type": "boolean"
+							},
+							"exchangeLastSuccessfulSyncDateTime": {
+								"type": "string"
+							},
+							"exchangeAccessState": {
+								"type": "string"
+							},
+							"exchangeAccessStateReason": {
+								"type": "string"
+							},
+							"remoteAssistanceSessionUrl": {
+								"type": "null"
+							},
+							"remoteAssistanceSessionErrorDetails": {
+								"type": "null"
+							},
+							"isEncrypted": {
+								"type": "boolean"
+							},
+							"userPrincipalName": {
+								"type": "string"
+							},
+							"model": {
+								"type": "string"
+							},
+							"manufacturer": {
+								"type": "string"
+							},
+							"imei": {
+								"type": "string"
+							},
+							"complianceGracePeriodExpirationDateTime": {
+								"type": "string"
+							},
+							"serialNumber": {
+								"type": "string"
+							},
+							"phoneNumber": {
+								"type": "string"
+							},
+							"androidSecurityPatchLevel": {
+								"type": "string"
+							},
+							"userDisplayName": {
+								"type": "string"
+							},
+							"configurationManagerClientEnabledFeatures": {
+								"type": "null"
+							},
+							"wiFiMacAddress": {
+								"type": "string"
+							},
+							"deviceHealthAttestationState": {
+								"type": "null"
+							},
+							"subscriberCarrier": {
+								"type": "string"
+							},
+							"meid": {
+								"type": "string"
+							},
+							"totalStorageSpaceInBytes": {
+								"type": "integer"
+							},
+							"freeStorageSpaceInBytes": {
+								"type": "integer"
+							},
+							"managedDeviceName": {
+								"type": "string"
+							},
+							"partnerReportedThreatState": {
+								"type": "string"
+							},
+							"requireUserEnrollmentApproval": {
+								"type": "boolean"
+							},
+							"managementCertificateExpirationDate": {
+								"type": "string"
+							},
+							"iccid": {
+								"type": "null"
+							},
+							"udid": {
+								"type": "null"
+							},
+							"notes": {
+								"type": "null"
+							},
+							"ethernetMacAddress": {
+								"type": "null"
+							},
+							"physicalMemoryInBytes": {
+								"type": "integer"
+							},
+							"deviceActionResults": {
+								"type": "array"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
